@@ -90,9 +90,10 @@ reframe -C config/azure_config.py -c checks -r -R
 
 ## 🤔 What's next?
 
-To learn more Charmed HPC, the following resources are available:
+To learn more about the benchmarks and Charmed HPC in general, the following resources are available:
 
 * [Charmed HPC Documentation](https://canonical-charmed-hpc.readthedocs-hosted.com/en/latest)
+* [Documentation in `scripts` subdirectories for supported clouds](./scripts)
 * [Open an issue](https://github.com/charmed-hpc/charmed-hpc-benchmarks/issues/new?title=ISSUE+TITLE&body=*Please+describe+your+issue*)
 * [Ask a question on the Charmed HPC GitHub](https://github.com/orgs/charmed-hpc/discussions/categories/q-a)
 
