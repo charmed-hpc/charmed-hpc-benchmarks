@@ -16,7 +16,7 @@ fi
 echo "Started at `date`"
 
 echo "Bootstrapping azure controller: ${CONTROLLER}..."
-juju bootstrap azure $CONTROLLER
+juju bootstrap azure $CONTROLLER --constraints "instance-role=auto"
 
 echo "Deploying plan to set up cluster..."
 tofu init
