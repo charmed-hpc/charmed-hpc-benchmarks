@@ -18,16 +18,6 @@ echo "Started at `date`"
 echo "Bootstrapping azure controller: ${CONTROLLER}..."
 juju bootstrap azure $CONTROLLER
 
-# Work around occasional i/o timeout errors from Juju attempting to use unaddressable internal IP
-# addresses as the API endpoint. See:
-# https://github.com/juju/terraform-provider-juju/issues/657
-#
-# Query the controller for all api-endpoints and remove IP addresses starting "192.168*" (typically
-# 192.168.16.4:17070 is the internal endpoint IP). With reference to:
-# https://registry.terraform.io/providers/juju/juju/latest/docs#environment-variables
-export JUJU_CONTROLLER_ADDRESSES=$(juju show-controller | yq .$CONTROLLER.details.api-endpoints | yq '.[] | select(. != "192.168*")' | paste -sd ",")
-echo "Juju controller addresses set to: ${JUJU_CONTROLLER_ADDRESSES}"
-
 echo "Deploying plan to set up cluster..."
 tofu init
 tofu apply -auto-approve
