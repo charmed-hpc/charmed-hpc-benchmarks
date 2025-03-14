@@ -87,11 +87,12 @@ echo "Destroying cluster..."
 # Retry destroy command on failure. Can happen if a VM is still using nfs-vnet when attempt to
 # destroy it occurs. TODO: confirm if race condition/bug in Juju provider.
 retries=0
-max_retries=2
+max_retries=5
+retry_timer=60
 while ! tofu destroy -auto-approve && [ $retries -lt $max_retries ]; do
     retries=$((retries+1))
-    echo "Attempt $retries failed. Retrying in 10 seconds..."
-    sleep 10
+    echo "Attempt $retries failed. Retrying in $retry_timer seconds..."
+    sleep $retry_timer
 done
 
 echo "Destroying controller: ${CONTROLLER}..."
