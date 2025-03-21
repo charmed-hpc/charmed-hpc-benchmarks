@@ -85,8 +85,10 @@ The suite can then be launched from the login node with:
 ```shell
 git clone https://github.com/charmed-hpc/charmed-hpc-benchmarks
 cd charmed-hpc-benchmarks
-reframe -C config/azure_config.py -c checks -r -R
+reframe -C config/azure_config.py -c checks -r -R -S slurmrestd_api_check.slurmrestd_hostname=juju-50c1e0-2
 ```
+
+substituting `slurmrestd_hostname=juju-50c1e0-2` with the instance ID for `slurmrestd` in your setup.
 
 ## 🤔 What's next?
 
