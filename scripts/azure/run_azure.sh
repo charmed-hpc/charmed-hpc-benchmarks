@@ -32,6 +32,7 @@ while true; do
   [[ "$all_active" == "false" ]] || break
   sleep 5
 done
+SLURMRESTD_HOST=$(juju status slurmrestd --format json | jq -r '.machines[.applications.slurmrestd.units | to_entries[] | .value.machine].hostname')
 
 # Workaround for "juju ssh" giving "Permission denied (publickey)" by default.
 # Using random tmpfile name to avoid filename collision. Assuming no file will be created at the
@@ -58,7 +59,7 @@ sudo apt-get install -y libcublas12
 EOF
 
 echo  "Installing and running ReFrame suite on the login node..."
-juju ssh login/leader -i "${SSH_KEY_PATH}" << "EOF"
+juju ssh login/leader -i "${SSH_KEY_PATH}" "bash -s ${SLURMRESTD_HOST}" << "EOF"
 # Software necessary for building ReFrame test applications
 sudo apt-get update
 sudo apt-get -y install libopenmpi-dev build-essential python3-venv nvidia-cuda-toolkit-gcc
@@ -74,9 +75,7 @@ git clone https://github.com/charmed-hpc/charmed-hpc-benchmarks.git
 cd charmed-hpc-benchmarks
 
 # Recursively run all checks
-reframe -C config/azure_config.py -c checks -r -R
-
-logout
+reframe -C config/azure_config.py -c checks -r -R -S slurmrestd_api_check.slurmrestd_hostname="$1"
 EOF
 
 echo  "Copying back test outputs..."
