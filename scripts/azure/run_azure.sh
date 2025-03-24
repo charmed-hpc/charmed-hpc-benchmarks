@@ -75,7 +75,7 @@ git clone https://github.com/charmed-hpc/charmed-hpc-benchmarks.git
 cd charmed-hpc-benchmarks
 
 # Recursively run all checks
-reframe -C config/azure_config.py -c checks -r -R -S slurmrestd_api_check.slurmrestd_hostname="$1"
+-reframe --config-file config/azure_config.py --checkpath checks --recursive --run --setvar slurmrestd_api_check.slurmrestd_hostname="$1"
 EOF
 
 echo  "Copying back test outputs..."
