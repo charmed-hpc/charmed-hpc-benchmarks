@@ -100,8 +100,7 @@ module "nfs-share" {
 
 ## MySQL - provides backing database for the accounting node.
 module "mysql" {
-  #source = "git::https://github.com/canonical/mysql-operator//terraform"
-  source = "/home/me/repos/mysql-operator/terraform"
+  source = "git::https://github.com/canonical/mysql-operator//terraform"
 
   juju_model_name = juju_model.charmed-hpc.name
   app_name        = "mysql"
