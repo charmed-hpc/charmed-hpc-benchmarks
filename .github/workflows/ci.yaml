@@ -1,0 +1,55 @@
+# Copyright 2025 Canonical Ltd.
+# See LICENSE file for licensing details.
+
+name: charmed-hpc-benchmarks tests
+on:
+  workflow_call:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  inclusive-naming-check:
+    name: Inclusive naming check
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run tests
+        uses: get-woke/woke-action@v0
+        with:
+          fail-on-error: true
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Just
+        uses: extractions/setup-just@v2
+        with:
+          just-version: 1.39.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: 0.5.8
+      - name: Run linters
+        run: just lint
+
+  fmt:
+    name: Format
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Just
+        uses: extractions/setup-just@v2
+        with:
+          just-version: 1.39.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: 0.5.8
+      - name: Run formatting
+        run: just fmt

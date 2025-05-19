@@ -12,14 +12,50 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+[project]
+name = "charmed-hpc-benchmarks"
+version = "0.1.0"
+requires-python = ">=3.10"
+description = "Benchmarks and tests for validating a Charmed HPC deployment. "
+authors = [
+    { name = "Ubuntu High-Performance Computing", email = "hpc-ubuntu-group@canonical.com" },
+]
+maintainers = [
+    { name = "Ubuntu High-Performance Computing", email = "hpc-ubuntu-group@canonical.com" },
+]
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["HPC", "benchmarking"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "ReFrame-HPC==4.7.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Linting
+    "ruff",
+    "codespell",
+    "pyright",
+]
+
+[project.urls]
+repository = "https://github.com/charmed-hpc/charmed-hpc-benchmarks.git"
+issues = "https://github.com/charmed-hpc/charmed-hpc-benchmarks/issues"
+
+
 # Spell checking tools configuration
 [tool.codespell]
-skip = "build,lib,venv,icon.svg,.tox,.git,.mypy_cache,.ruff_cache,.vscode,.coverage"
-
-# Formatting tools configuration
-[tool.black]
-line-length = 99
-target-version = ["py38"]
+skip = "lib,venv,icon.svg,.tox,.git,.mypy_cache,.ruff_cache,.pytest_cache,.vscode,.coverage,.venv,cover,_apt.py"
 
 # Linting tools configuration
 [tool.ruff]
