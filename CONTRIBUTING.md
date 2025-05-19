@@ -159,10 +159,10 @@ Adhering to the following process is the best way to get your contribution accep
 
     ```bash
     # Apply formatting standards to code.
-    tox run -e fmt
+    just fmt
 
     # Check code against coding style standards.
-    tox run -e lint
+    just lint
     ```
 
 5. Commit your changes in logical chunks to your topic branch.

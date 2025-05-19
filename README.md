@@ -101,11 +101,12 @@ To learn more about the benchmarks and Charmed HPC in general, the following res
 
 ## 🛠️ Development
 
-Useful commands to help while hacking on the checks are:
+The project uses [just](https://github.com/casey/just) and [uv](https://github.com/astral-sh/uv) for
+development. Useful commands to help while hacking on the checks are:
 
 ```shell
-tox run -e fmt # Apply formatting standards to code.
-tox run -e lint # Check code against coding style standards.
+just fmt # Apply formatting standards to code.
+just lint # Check code against coding style standards.
 ```
 
 If you're interested in contributing, take a look at our [contributing guidelines](./CONTRIBUTING.md).
