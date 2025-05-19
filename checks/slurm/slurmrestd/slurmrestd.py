@@ -3,7 +3,6 @@
 
 """Checks for Slurm REST API health."""
 
-
 import reframe as rfm
 import reframe.utility.sanity as sn
 

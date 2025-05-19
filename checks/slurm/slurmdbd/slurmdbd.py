@@ -3,7 +3,6 @@
 
 """Checks for Slurm accounting database health."""
 
-
 import reframe as rfm
 import reframe.utility.sanity as sn
 

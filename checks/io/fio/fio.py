@@ -107,7 +107,7 @@ class fio_check_base(rfm.RunOnlyRegressionTest):
 class fio_check_home(fio_check_base):
     """FIO home directory checks."""
 
-    directory_prefix = f'{os.environ["HOME"]}/'
+    directory_prefix = f"{os.environ['HOME']}/"
 
 
 @rfm.simple_test
