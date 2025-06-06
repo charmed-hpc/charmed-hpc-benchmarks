@@ -25,7 +25,7 @@ Before running the script, you will need:
   * [Juju CLI client](https://juju.is/docs/juju/install-and-manage-the-client)
   * [OpenTofu infrastructure as code tool](https://opentofu.org/docs/intro/install/)
   * [`jq` command-line JSON processor](https://jqlang.org/)
-* [Your Azure credentials added to the Juju CLI client](https://canonical-charmed-hpc.readthedocs-hosted.com/en/latest/howto/initialize-cloud-environment/) but no controller bootstrapped
+* [Your Azure credentials added to the Juju CLI client](https://canonical-charmed-hpc.readthedocs-hosted.com/latest/howto/initialize-cloud-environment/) but no controller bootstrapped
 
 ## Running
 
