@@ -94,7 +94,7 @@ substituting `slurmrestd_hostname=juju-50c1e0-2` with the instance ID for `slurm
 
 To learn more about the benchmarks and Charmed HPC in general, the following resources are available:
 
-* [Charmed HPC Documentation](https://canonical-charmed-hpc.readthedocs-hosted.com/en/latest)
+* [Charmed HPC Documentation](https://canonical-charmed-hpc.readthedocs-hosted.com/latest)
 * [Documentation in `scripts` subdirectories for supported clouds](./scripts)
 * [Open an issue](https://github.com/charmed-hpc/charmed-hpc-benchmarks/issues/new?title=ISSUE+TITLE&body=*Please+describe+your+issue*)
 * [Ask a question on the Charmed HPC GitHub](https://github.com/orgs/charmed-hpc/discussions/categories/q-a)
