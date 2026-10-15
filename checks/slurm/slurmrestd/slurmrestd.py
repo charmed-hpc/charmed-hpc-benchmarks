@@ -20,8 +20,8 @@ class slurmrestd_api_check(rfm.RunOnlyRegressionTest):
     reference = REFERENCE
 
     slurmrestd_hostname = variable(str, value="localhost")
-    # v0.0.40 is current as of slurm-wlm 23.11.4.
-    slurmrestd_api_version = variable(str, value="v0.0.40")
+    # v0.0.44 is current as of slurm-wlm 25.11 (serves v0.0.41-v0.0.44).
+    slurmrestd_api_version = variable(str, value="v0.0.44")
 
     @run_before("run")
     def set_run_commands(self):
